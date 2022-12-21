@@ -1,6 +1,7 @@
 import { fetchMovies } from 'services/moviesApi';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
+import { MoviesList } from 'components/MoviesList/MoviesList';
 
 export const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -9,12 +10,5 @@ export const HomePage = () => {
     fetchMovies().then(setMovies);
   }, []);
 
-  return (
-    <>
-      <h1>Trending today</h1>
-      <ul>
-        <li></li>
-      </ul>
-    </>
-  );
+  return movies && <MoviesList movies={movies} />;
 };

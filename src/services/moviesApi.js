@@ -10,7 +10,48 @@ export async function fetchMovies() {
         api_key: API_KEY,
       },
     });
-    return response.data.append_to_response;
+    return response.data.results;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function fetchMovieById(movieId) {
+  try {
+    const response = await axios(`movie/${movieId}`, {
+      params: {
+        api_key: API_KEY,
+        id: movieId,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function fetchMovieByQuery(query) {
+  try {
+    const response = await axios('search/movie', {
+      params: {
+        api_key: API_KEY,
+        query,
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function fetchMovieActors(movieId) {
+  try {
+    const response = await axios(`movie/${movieId}/credits`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response.data.cast;
   } catch (error) {
     console.error(error);
   }

@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Navigation } from 'components/Navigation/Navigation';
+import { GlobalStyle } from 'utils/GlobalStyles';
 
 export const Layout = () => {
   return (
@@ -11,6 +12,7 @@ export const Layout = () => {
         <Outlet />
       </main>
       <footer>Footer</footer>
+      <GlobalStyle />
     </>
   );
 };
