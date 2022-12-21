@@ -56,3 +56,16 @@ export async function fetchMovieActors(movieId) {
     console.error(error);
   }
 }
+
+export async function fetchMovieReviews(movieId) {
+  try {
+    const response = await axios(`movie/${movieId}/reviews`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error(error);
+  }
+}

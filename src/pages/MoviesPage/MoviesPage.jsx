@@ -11,16 +11,17 @@ export const MoviesPage = () => {
   const queryParams = searchParams.get('query');
 
   useEffect(() => {
-    async function searchMovies() {
-      const moviesArray = await fetchMovieByQuery(queryParams);
-      const filtredMovies = moviesMapper(moviesArray);
-      if (moviesArray.length === 0) {
-        alert('No matches');
+    if (queryParams) {
+      async function searchMovies() {
+        const moviesArray = await fetchMovieByQuery(queryParams);
+        const filtredMovies = moviesMapper(moviesArray);
+        if (moviesArray.length === 0) {
+          alert('No matches');
+        }
+        setMovies(filtredMovies);
       }
-
-      setMovies(filtredMovies);
+      searchMovies();
     }
-    searchMovies();
   }, [queryParams]);
 
   const handleFormSubmit = query => {
