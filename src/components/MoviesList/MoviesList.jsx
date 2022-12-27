@@ -1,11 +1,11 @@
 import { MoviesItem } from 'components/MoviesItem/MoviesItem';
-import { List } from './MoviesList.styled';
+import { List, MoviesGallery } from './MoviesList.styled';
 
 export const MoviesList = ({ movies }) => {
   return (
     movies && (
       <>
-        <ul>
+        <MoviesGallery>
           {movies.map(({ title, id, poster_path, vote_average }) => (
             <List key={id}>
               <MoviesItem
@@ -16,7 +16,7 @@ export const MoviesList = ({ movies }) => {
               />
             </List>
           ))}
-        </ul>
+        </MoviesGallery>
       </>
     )
   );

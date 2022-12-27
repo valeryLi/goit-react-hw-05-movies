@@ -21,7 +21,12 @@ export const Cast = () => {
   }, [actors, movieId]);
   return (
     <>
-      <ActorsList actors={actors} />
+      {actors.length === 0 ? (
+        <p>Sorry, there are not info about actors</p>
+      ) : (
+        <ActorsList actors={actors} />
+      )}
+
       <Outlet />
     </>
   );

@@ -9,7 +9,11 @@ export const MovieDescription = () => {
       <div>
         <h2>{movie.title}</h2>
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+              : `https://vcunited.club/wp-content/uploads/2020/01/No-image-available-2.jpg`
+          }
           alt={movie.title}
         />
         <div>

@@ -1,18 +1,17 @@
 import { Outlet } from 'react-router-dom';
 import { Navigation } from 'components/Navigation/Navigation';
-import { GlobalStyle } from 'utils/GlobalStyles';
+import { Header } from './Layout.styled';
 
 export const Layout = () => {
   return (
-    <>
-      <header>
+    <div>
+      <Header>
         <Navigation />
-      </header>
+      </Header>
       <main>
         <Outlet />
       </main>
       <footer>Footer</footer>
-      <GlobalStyle />
-    </>
+    </div>
   );
 };

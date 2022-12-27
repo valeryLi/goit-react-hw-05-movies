@@ -1,18 +1,28 @@
-import { NavList } from './Navigation.styled';
+import { NavItem, NavList, NavHeader, Logo } from './Navigation.styled';
+import { ImVideoCamera } from 'react-icons/im';
+import { NavLink } from 'react-router-dom';
+
+const fontStyles = { color: 'aqua', fontSize: '30px', marginLeft: '10px' };
 
 export const Navigation = () => {
   return (
-    <nav>
-      <ul>
+    <NavHeader>
+      <NavList>
         <li>
-          <NavList to="/" end>
+          <Logo to={'/'}>
+            MovieWorld
+            <ImVideoCamera style={fontStyles} />
+          </Logo>
+        </li>
+        <li>
+          <NavItem to="/" end>
             Home
-          </NavList>
+          </NavItem>
         </li>
         <li>
-          <NavList to="/movies">Movies</NavList>
+          <NavItem to="/movies">Movies</NavItem>
         </li>
-      </ul>
-    </nav>
+      </NavList>
+    </NavHeader>
   );
 };
