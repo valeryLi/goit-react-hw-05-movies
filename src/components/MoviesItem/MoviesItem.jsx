@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { MovieCard, Image } from './MovieItem.styled';
+import { MovieCard, Image, MovieCardTitle, Rating } from './MovieItem.styled';
 
-export const MoviesItem = ({ id, title, poster }) => {
+export const MoviesItem = ({ id, title, poster, rating }) => {
   return (
     <MovieCard>
       <Link to={`/movies/${id}`}>
+        <Rating>{rating.toFixed(2)}</Rating>
         <Image
           src={
             poster
@@ -13,7 +14,9 @@ export const MoviesItem = ({ id, title, poster }) => {
           }
           alt={title}
         />
-        <p>{title}</p>
+        <MovieCardTitle>
+          {title.length >= 34 ? title.substring(0, 34) + '...' : title}
+        </MovieCardTitle>
       </Link>
     </MovieCard>
   );

@@ -26,5 +26,13 @@ h1,h2,h3,h4,h5,h6,p {
 a{
     text-decoration: none;
 }
+body{
+  background-color: #5B60B7;
+}
 
+#root{
+min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 `;

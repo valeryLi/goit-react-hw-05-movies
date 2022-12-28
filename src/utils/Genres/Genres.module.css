@@ -1,0 +1,15 @@
+.genresList {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.genresItem {
+  font-family: Goodbye;
+  font-size: 25px;
+  color: white;
+}
+
+.genresItem:not(:last-child):after {
+  margin-right: 10px;
+  content: ',';
+}

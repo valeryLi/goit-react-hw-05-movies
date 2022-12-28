@@ -8,7 +8,6 @@ export const MovieDetails = () => {
     <>
       {movie && (
         <div>
-          {/* <MoviesItem movie={movie} /> */}
           <MovieDescription movie={movie} />
 
           <Outlet />

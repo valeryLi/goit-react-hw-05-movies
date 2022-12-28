@@ -1,8 +1,7 @@
 import { NavItem, NavList, NavHeader, Logo } from './Navigation.styled';
 import { ImVideoCamera } from 'react-icons/im';
-import { NavLink } from 'react-router-dom';
 
-const fontStyles = { color: 'aqua', fontSize: '30px', marginLeft: '10px' };
+const fontStyles = { color: 'white', fontSize: '30px', marginLeft: '2px' };
 
 export const Navigation = () => {
   return (

@@ -11,3 +11,23 @@
   font-family: 'Crispy Cream';
   src: url(./fonts/CrispyCream-nRwW4.otf);
 }
+
+@font-face {
+  font-family: 'Simple Games';
+  src: url(./fonts/SimpleGames-JR6on.ttf);
+}
+
+@font-face {
+  font-family: 'Coming Soon';
+  src: url(./fonts/ComingSoonSt-KRro.ttf);
+}
+
+@font-face {
+  font-family: 'Road';
+  src: url(./fonts/RoadToJustice-vmolL.otf);
+}
+
+@font-face {
+  font-family: 'Goodbye';
+  src: url(./fonts/GoodbyeMidnight-1GvAM.otf);
+}

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { moviesMapper } from 'utils/moviesMapper';
+import { Image } from './MoviesPage.styled';
 
 export const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -32,7 +33,14 @@ export const MoviesPage = () => {
   return (
     <>
       <Searchbar onSubmit={handleFormSubmit} />
-      {movies && <MoviesList movies={movies} />}
+      {movies.length > 0 ? (
+        <MoviesList movies={movies} />
+      ) : (
+        <Image
+          src="https://image.freepik.com/vector-gratis/diseno-de-icono-de-cine_24911-26856.jpg"
+          alt="popcorn"
+        />
+      )}
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { fetchMovies } from 'services/moviesApi';
 import { useState, useEffect } from 'react';
+import { HomeTitle } from './HomePage.styled';
 
 import { MoviesList } from 'components/MoviesList/MoviesList';
 
@@ -10,5 +11,12 @@ export const HomePage = () => {
     fetchMovies().then(setMovies);
   }, []);
 
-  return movies && <MoviesList movies={movies} />;
+  return (
+    movies && (
+      <>
+        <HomeTitle>Trending today</HomeTitle>
+        <MoviesList movies={movies} />
+      </>
+    )
+  );
 };

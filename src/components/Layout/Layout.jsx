@@ -1,17 +1,26 @@
 import { Outlet } from 'react-router-dom';
 import { Navigation } from 'components/Navigation/Navigation';
-import { Header } from './Layout.styled';
+import { Header, Footer } from './Layout.styled';
+import { Section } from 'components/Section/Section';
+import { BiCopyright } from 'react-icons/bi';
 
 export const Layout = () => {
   return (
-    <div>
+    <>
       <Header>
         <Navigation />
       </Header>
+
       <main>
-        <Outlet />
+        <Section>
+          <Outlet />
+        </Section>
       </main>
-      <footer>Footer</footer>
-    </div>
+
+      <Footer>
+        <BiCopyright />
+        2022 ValeryLi
+      </Footer>
+    </>
   );
 };

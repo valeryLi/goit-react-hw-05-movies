@@ -12,7 +12,6 @@ export const NavItem = styled(NavLink)`
 `;
 
 export const NavHeader = styled('nav')`
-  background-color: grey;
   padding: 20px;
 `;
 
@@ -24,8 +23,8 @@ export const NavList = styled('ul')`
 `;
 
 export const Logo = styled(NavLink)`
-  font-family: Dash;
-  font-size: 40px;
+  font-family: Coming Soon;
+  font-size: 30px;
   color: white;
   margin-right: 700px;
 `;
