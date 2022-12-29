@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-05-movies/static/css/main.2d4b40ef.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.c09a8ef5.js",
+    "main.css": "/goit-react-hw-05-movies/static/css/main.550f663b.css",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.de686743.js",
     "static/media/RoadToJustice-vmolL.otf": "/goit-react-hw-05-movies/static/media/RoadToJustice-vmolL.42ec4c8491da8abbd519.otf",
     "static/media/GoodbyeMidnight-1GvAM.otf": "/goit-react-hw-05-movies/static/media/GoodbyeMidnight-1GvAM.bbf28b3f482a4aeae349.otf",
     "static/media/SimpleGames-JR6on.ttf": "/goit-react-hw-05-movies/static/media/SimpleGames-JR6on.580465f62588ad269867.ttf",
     "static/media/CrispyCream-nRwW4.otf": "/goit-react-hw-05-movies/static/media/CrispyCream-nRwW4.009e712f78b708bc4213.otf",
     "static/media/ComingSoonSt-KRro.ttf": "/goit-react-hw-05-movies/static/media/ComingSoonSt-KRro.465362eb210e41bb7239.ttf",
+    "static/media/SendangMulyo-owKJa.ttf": "/goit-react-hw-05-movies/static/media/SendangMulyo-owKJa.222cf2165b8f821d8aab.ttf",
     "static/media/Dashdemo-ozJA.ttf": "/goit-react-hw-05-movies/static/media/Dashdemo-ozJA.e34232eae4bdd6ea228f.ttf",
     "index.html": "/goit-react-hw-05-movies/index.html",
-    "main.2d4b40ef.css.map": "/goit-react-hw-05-movies/static/css/main.2d4b40ef.css.map",
-    "main.c09a8ef5.js.map": "/goit-react-hw-05-movies/static/js/main.c09a8ef5.js.map"
+    "main.550f663b.css.map": "/goit-react-hw-05-movies/static/css/main.550f663b.css.map",
+    "main.de686743.js.map": "/goit-react-hw-05-movies/static/js/main.de686743.js.map"
   },
   "entrypoints": [
-    "static/css/main.2d4b40ef.css",
-    "static/js/main.c09a8ef5.js"
+    "static/css/main.550f663b.css",
+    "static/js/main.de686743.js"
   ]
 }
