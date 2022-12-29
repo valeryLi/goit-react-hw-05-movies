@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/moviesApi';
 import { reviewsMapper } from 'utils/reviewsMapper';
 import { Outlet } from 'react-router-dom';
+import { RieviewsContainer } from './Rieviews.styled';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -22,14 +23,14 @@ export const Reviews = () => {
   }, [reviews, movieId]);
 
   return (
-    <>
+    <RieviewsContainer>
       {reviews.length === 0 ? (
-        <p>Sorry, there are not reviews yet</p>
+        <p>Sorry, there are no reviews yet</p>
       ) : (
         <MovieReviews reviews={reviews} />
       )}
 
       <Outlet />
-    </>
+    </RieviewsContainer>
   );
 };

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { fetchMovieActors } from 'services/moviesApi';
 import { actorsMapper } from 'utils/actorsMapper';
+import { ActorsContainer } from './Cast.styled';
 
 export const Cast = () => {
   const [actors, setActors] = useState([]);
@@ -20,14 +21,14 @@ export const Cast = () => {
     }
   }, [actors, movieId]);
   return (
-    <>
+    <ActorsContainer>
       {actors.length === 0 ? (
-        <p>Sorry, there are not info about actors</p>
+        <p>Sorry, there are no info about actors</p>
       ) : (
         <ActorsList actors={actors} />
       )}
 
       <Outlet />
-    </>
+    </ActorsContainer>
   );
 };

@@ -7,7 +7,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  background-color: transparent;
+  background-color: inherit;
   border: none;
   outline: none;
   border-bottom: 2px solid #3d42a2;

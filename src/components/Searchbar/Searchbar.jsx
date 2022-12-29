@@ -18,7 +18,12 @@ export const Searchbar = ({ onSubmit }) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Input type="text" name="query" />
+        <Input
+          type="text"
+          name="query"
+          autoComplete="off"
+          placeholder="What do you want to watch?"
+        />
         <SearchButton type="submit">
           <ImSearch style={SearchIconStyles} />
         </SearchButton>

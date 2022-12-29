@@ -1,14 +1,25 @@
+import {
+  ReviewItem,
+  ReviewAuthor,
+  Author,
+  ReviewsList,
+  ReviewContent,
+} from './MovieReviews.styled';
+
 export const MovieReviews = ({ reviews }) => {
   return (
-    <ul>
+    <ReviewsList>
       {reviews.map(review => {
         return (
-          <li key={review.id}>
-            <p>Author:{review.author}</p>
-            <p>{review.content}</p>
-          </li>
+          <ReviewItem key={review.id}>
+            <ReviewAuthor>
+              <Author>Author:</Author>
+              {review.author}
+            </ReviewAuthor>
+            <ReviewContent>{review.content}</ReviewContent>
+          </ReviewItem>
         );
       })}
-    </ul>
+    </ReviewsList>
   );
 };

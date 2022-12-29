@@ -1,19 +1,20 @@
 import { ActorCard } from 'components/ActorCard/ActorCard';
+import { ActorsListStyled, ActorsListItem } from './ActorsList.styled';
 
 export const ActorsList = ({ actors }) => {
   return (
-    <ul>
+    <ActorsListStyled>
       {actors.map(actor => {
         return (
-          <li key={actor.id}>
+          <ActorsListItem key={actor.id}>
             <ActorCard
               name={actor.name}
               character={actor.character}
               profile={actor.profile_path}
             />
-          </li>
+          </ActorsListItem>
         );
       })}
-    </ul>
+    </ActorsListStyled>
   );
 };

@@ -22,10 +22,10 @@ export const Image = styled.img`
 `;
 
 export const MovieCardTitle = styled.p`
-  font-family: Simple Games;
-  font-size: 25px;
-  font-weight: bold;
-  color: black;
+  font-family: Road;
+  font-size: 18px;
+
+  color: #2d144c;
   padding: 10px;
 `;
 

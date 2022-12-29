@@ -1,6 +1,6 @@
 import { GenresMapper } from 'utils/Genres/GenresMapper';
 import { useFetchMovies } from 'hooks/useFetchMovies';
-import { Link } from 'react-router-dom';
+
 import {
   MovieDescriptionContainer,
   MoviePoster,
@@ -9,6 +9,10 @@ import {
   MovieInfoTitle,
   MovieInfoText,
   MovieTitle,
+  AdditionalInfoContainer,
+  AdditionalInfoTitle,
+  AdditionalInfoList,
+  AdditionalInfoLink,
 } from './MovieDescription.styled';
 
 export const MovieDescription = () => {
@@ -47,12 +51,17 @@ export const MovieDescription = () => {
             </ul>
           </MovieInfo>
         </MovieDescriptionContainer>
-        <div>
-          <h3>Additional information</h3>
-
-          <Link to="cast">Cast</Link>
-          <Link to="reviews">Reviews</Link>
-        </div>
+        <AdditionalInfoContainer>
+          <AdditionalInfoTitle>Additional information</AdditionalInfoTitle>
+          <AdditionalInfoList>
+            <li>
+              <AdditionalInfoLink to="cast">Cast</AdditionalInfoLink>{' '}
+            </li>
+            <li>
+              <AdditionalInfoLink to="reviews">Reviews</AdditionalInfoLink>
+            </li>
+          </AdditionalInfoList>
+        </AdditionalInfoContainer>
       </>
     )
   );

@@ -31,3 +31,8 @@
   font-family: 'Goodbye';
   src: url(./fonts/GoodbyeMidnight-1GvAM.otf);
 }
+
+@font-face {
+  font-family: 'Sendang';
+  src: url(./fonts/SendangMulyo-owKJa.ttf);
+}

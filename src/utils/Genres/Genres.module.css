@@ -3,6 +3,20 @@
   justify-content: flex-start;
 }
 
+@media screen and (min-width: 480px) {
+  .genresList {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .genresList {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
 .genresItem {
   font-family: Goodbye;
   font-size: 25px;
