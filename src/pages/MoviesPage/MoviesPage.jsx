@@ -5,22 +5,32 @@ import { useSearchParams } from 'react-router-dom';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { moviesMapper } from 'utils/moviesMapper';
 import { Image } from './MoviesPage.styled';
+import { Loader } from 'components/Loader/Loader';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const queryParams = searchParams.get('query');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (queryParams) {
-      async function searchMovies() {
-        const moviesArray = await fetchMovieByQuery(queryParams);
-        const filtredMovies = moviesMapper(moviesArray);
-        if (moviesArray.length === 0) {
-          alert('No matches');
-        }
-        setMovies(filtredMovies);
+    async function searchMovies() {
+      setIsLoading(true);
+      const moviesArray = await fetchMovieByQuery(queryParams);
+      const filtredMovies = moviesMapper(moviesArray);
+
+      if (moviesArray.length === 0) {
+        setIsLoading(false);
+        return showToastMessageError();
       }
+
+      setMovies(filtredMovies);
+      setIsLoading(false);
+    }
+
+    if (queryParams) {
       searchMovies();
     }
   }, [queryParams]);
@@ -30,9 +40,23 @@ export const MoviesPage = () => {
     setMovies([]);
   };
 
+  const showToastMessageError = () => {
+    toast.error('Sorry, no matches there, please try again.', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  };
+
   return (
     <>
       <Searchbar onSubmit={handleFormSubmit} />
+      {isLoading && <Loader />}
       {movies.length > 0 ? (
         <MoviesList movies={movies} />
       ) : (
@@ -41,6 +65,9 @@ export const MoviesPage = () => {
           alt="popcorn"
         />
       )}
+      <ToastContainer />
     </>
   );
 };
+
+export default MoviesPage;

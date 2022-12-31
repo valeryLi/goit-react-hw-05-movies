@@ -1,5 +1,5 @@
 import { GenresMapper } from 'utils/Genres/GenresMapper';
-import { useFetchMovies } from 'hooks/useFetchMovies';
+import { useFetchMovies } from 'components/hooks/useFetchMovies';
 
 import {
   MovieDescriptionContainer,

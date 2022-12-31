@@ -1,18 +1,36 @@
 import { MovieDescription } from 'components/MovieDescription/MovieDescription';
-import { useFetchMovies } from 'hooks/useFetchMovies';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
+import { GoBackBtn } from 'components/GoBackBtn/GoBackBtn';
+import { useState, useEffect } from 'react';
+import { fetchMovieById } from 'services/moviesApi';
+import { Loader } from 'components/Loader/Loader';
 
-export const MovieDetails = () => {
-  const movie = useFetchMovies();
+const MovieDetails = () => {
+  const { movieId } = useParams();
+  const [movieDetails, setMovieDetails] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    async function getMovieDetails() {
+      setIsLoading(true);
+      const details = await fetchMovieById(movieId);
+      setMovieDetails(details);
+      setIsLoading(false);
+    }
+    getMovieDetails();
+  }, [movieId]);
+
   return (
-    <>
-      {movie && (
-        <div>
-          <MovieDescription movie={movie} />
+    movieDetails && (
+      <>
+        <GoBackBtn />
+        {isLoading && <Loader />}
+        <MovieDescription movie={movieDetails} />
 
-          <Outlet />
-        </div>
-      )}
-    </>
+        <Outlet />
+      </>
+    )
   );
 };
+
+export default MovieDetails;

@@ -23,7 +23,7 @@ export const Image = styled.img`
 
 export const MovieCardTitle = styled.p`
   font-family: Road;
-  font-size: 18px;
+  font-size: 20px;
 
   color: #2d144c;
   padding: 10px;

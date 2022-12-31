@@ -3,34 +3,36 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/moviesApi';
 import { reviewsMapper } from 'utils/reviewsMapper';
-import { Outlet } from 'react-router-dom';
+import { Loader } from 'components/Loader/Loader';
 import { RieviewsContainer } from './Rieviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (reviews) {
-      async function searchReviews() {
-        const reviewsArray = await fetchMovieReviews(movieId);
-        const filtredReviews = reviewsMapper(reviewsArray);
+    async function searchReviews() {
+      setIsLoading(true);
+      const reviewsArray = await fetchMovieReviews(movieId);
+      const filtredReviews = reviewsMapper(reviewsArray);
 
-        setReviews(filtredReviews);
-      }
-      searchReviews();
+      setReviews(filtredReviews);
+      setIsLoading(false);
     }
-  }, [reviews, movieId]);
+    searchReviews();
+  }, [movieId]);
 
   return (
     <RieviewsContainer>
-      {reviews.length === 0 ? (
+      {isLoading && <Loader />}
+      {reviews.length === 0 && !isLoading ? (
         <p>Sorry, there are no reviews yet</p>
       ) : (
         <MovieReviews reviews={reviews} />
       )}
-
-      <Outlet />
     </RieviewsContainer>
   );
 };
+
+export default Reviews;

@@ -1,34 +1,38 @@
 import { ActorsList } from 'components/ActorsList/ActorsList';
 import { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { fetchMovieActors } from 'services/moviesApi';
 import { actorsMapper } from 'utils/actorsMapper';
 import { ActorsContainer } from './Cast.styled';
+import { Loader } from 'components/Loader/Loader';
 
-export const Cast = () => {
+const Cast = () => {
   const [actors, setActors] = useState([]);
   const { movieId } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (actors) {
-      async function searchActors() {
-        const actorsArray = await fetchMovieActors(movieId);
-        const filtredActors = actorsMapper(actorsArray);
+    async function searchActors() {
+      setIsLoading(true);
+      const actorsArray = await fetchMovieActors(movieId);
+      const filtredActors = actorsMapper(actorsArray);
 
-        setActors(filtredActors);
-      }
-      searchActors();
+      setActors(filtredActors);
+      setIsLoading(false);
     }
-  }, [actors, movieId]);
+    searchActors();
+  }, [movieId]);
   return (
     <ActorsContainer>
-      {actors.length === 0 ? (
+      {isLoading && <Loader />}
+
+      {actors.length === 0 && !isLoading ? (
         <p>Sorry, there are no info about actors</p>
       ) : (
         <ActorsList actors={actors} />
       )}
-
-      <Outlet />
     </ActorsContainer>
   );
 };
+
+export default Cast;

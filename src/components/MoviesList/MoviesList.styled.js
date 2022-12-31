@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-export const List = styled.li`
+export const ListItem = styled.li`
   color: dark-blue;
   font-size: 18px;
-  margin: 20px;
 
   &:focus {
     color: red;
@@ -13,7 +12,7 @@ export const List = styled.li`
 export const MoviesGallery = styled.ul`
   display: grid;
   max-width: calc(100vw - 48px);
-  grid-template-columns: repeat(auto-fill, minmax(180px, 320px));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
   grid-gap: 16px;
   justify-content: center;
 

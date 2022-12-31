@@ -1,5 +1,5 @@
 import { MoviesItem } from 'components/MoviesItem/MoviesItem';
-import { List, MoviesGallery } from './MoviesList.styled';
+import { ListItem, MoviesGallery } from './MoviesList.styled';
 
 export const MoviesList = ({ movies }) => {
   return (
@@ -7,14 +7,14 @@ export const MoviesList = ({ movies }) => {
       <>
         <MoviesGallery>
           {movies.map(({ title, id, poster_path, vote_average }) => (
-            <List key={id}>
+            <ListItem key={id}>
               <MoviesItem
                 title={title}
                 id={id}
                 poster={poster_path}
                 rating={vote_average}
               />
-            </List>
+            </ListItem>
           ))}
         </MoviesGallery>
       </>

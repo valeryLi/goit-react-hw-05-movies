@@ -1,5 +1,7 @@
 import { Form, Input, SearchButton } from './Searchbar.styled';
 import { ImSearch } from 'react-icons/im';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SearchIconStyles = { width: '30px', height: '30px' };
 
@@ -9,12 +11,26 @@ export const Searchbar = ({ onSubmit }) => {
 
     const form = event.target.elements.query.value;
     if (form.trim() === '') {
-      alert('Empty input');
+      return showToastMessageWarn();
     }
 
     onSubmit(form);
     event.target.reset();
   };
+
+  const showToastMessageWarn = () => {
+    toast.warn('Sorry, yours field is empty, please complete your field.', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  };
+
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -28,6 +44,7 @@ export const Searchbar = ({ onSubmit }) => {
           <ImSearch style={SearchIconStyles} />
         </SearchButton>
       </Form>
+      <ToastContainer />
     </>
   );
 };
