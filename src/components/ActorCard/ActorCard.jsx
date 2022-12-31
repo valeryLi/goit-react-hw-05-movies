@@ -1,9 +1,12 @@
+import PropTypes from 'prop-types';
+
 import {
   ActorImage,
   ActorInfo,
   ActorName,
   Character,
 } from './ActorCard.styled';
+
 export const ActorCard = ({ name, character, profile }) => {
   return (
     <>
@@ -23,4 +26,10 @@ export const ActorCard = ({ name, character, profile }) => {
       </ActorInfo>
     </>
   );
+};
+
+ActorCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  profile: PropTypes.string,
+  character: PropTypes.string,
 };

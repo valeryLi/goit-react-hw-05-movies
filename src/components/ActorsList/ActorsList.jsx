@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ActorCard } from 'components/ActorCard/ActorCard';
 import { ActorsListStyled, ActorsListItem } from './ActorsList.styled';
 
@@ -17,4 +18,15 @@ export const ActorsList = ({ actors }) => {
       })}
     </ActorsListStyled>
   );
+};
+
+ActorsList.propTypes = {
+  actors: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      character: PropTypes.string,
+      profile: PropTypes.string,
+    }).isRequired
+  ),
 };

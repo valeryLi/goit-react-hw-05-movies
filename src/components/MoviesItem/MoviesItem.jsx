@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MovieCard, Image, MovieCardTitle, Rating } from './MovieItem.styled';
 
@@ -20,4 +21,11 @@ export const MoviesItem = ({ id, title, poster, rating }) => {
       </Link>
     </MovieCard>
   );
+};
+
+MoviesItem.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  poster: PropTypes.string,
+  rating: PropTypes.number,
 };

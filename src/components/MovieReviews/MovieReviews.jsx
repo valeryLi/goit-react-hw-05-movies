@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   ReviewItem,
   ReviewAuthor,
@@ -22,4 +24,14 @@ export const MovieReviews = ({ reviews }) => {
       })}
     </ReviewsList>
   );
+};
+
+MovieReviews.propTypes = {
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      content: PropTypes.string,
+    }).isRequired
+  ),
 };

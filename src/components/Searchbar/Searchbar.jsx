@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Form, Input, SearchButton } from './Searchbar.styled';
 import { ImSearch } from 'react-icons/im';
 import { ToastContainer, toast } from 'react-toastify';
@@ -47,4 +48,8 @@ export const Searchbar = ({ onSubmit }) => {
       <ToastContainer />
     </>
   );
+};
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func,
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { MoviesItem } from 'components/MoviesItem/MoviesItem';
 import { ListItem, MoviesGallery } from './MoviesList.styled';
 
@@ -20,4 +21,15 @@ export const MoviesList = ({ movies }) => {
       </>
     )
   );
+};
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      rating: PropTypes.number,
+      poster: PropTypes.string,
+      title: PropTypes.string,
+      id: PropTypes.number,
+    })
+  ),
 };

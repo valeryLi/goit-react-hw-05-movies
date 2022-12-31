@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { GenresMapper } from 'utils/Genres/GenresMapper';
 import { useFetchMovies } from 'components/hooks/useFetchMovies';
 
@@ -65,4 +66,14 @@ export const MovieDescription = () => {
       </>
     )
   );
+};
+
+MovieDescription.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    poster_path: PropTypes.string,
+    vote_average: PropTypes.number,
+    genres: PropTypes.arrayOf(PropTypes.object),
+    overview: PropTypes.string,
+  }),
 };
